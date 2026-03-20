@@ -6,7 +6,7 @@ import { Toaster } from 'react-hot-toast';
 import { store } from './store/store';
 import App from './App';
 import './index.css';
-
+export const serverURI = "https://sd-fitness-aewo.onrender.com" 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
