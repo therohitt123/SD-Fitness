@@ -30,6 +30,7 @@ export default function Advanced3DSlider() {
         const mapped = rows.map((row, i) => ({
           id: row._id || `s-${i}`,
           name: row.title || `Slide ${i + 1}`,
+          description: row.description || '',
           location: 'SD Fitness',
           img: row.url,
           mediaType: row.mediaType || 'image',
@@ -126,11 +127,11 @@ export default function Advanced3DSlider() {
       <div className="absolute inset-0 bg-black/50 " />
 
       {/* TEXT */}
-      <div className="sm:sticky absolute max-md:left-24 top-[57%] z-20 flex max-w-xl max-sm:w-full max-sm:mx-auto max-sm:left-0 sm:-translate-y-1/2 flex-col items-center justify-center md:mt-10 ">
+      <div className="sm:sticky absolute max-md:left-24 top-[57%] z-20 flex max-w-xl max-sm:w-full max-sm:mx-auto max-sm:left-0 sm:-translate-y-1/2 flex-col items-center justify-center md:mt-10 text-center">
       
         <img src="/SD_Fitness.svg" alt="SD Fitness" className="md:mb-2 h-36 w-36 object-contain md:h-44 md:w-44 absolute -top-[115px] max-sm:-top-24" />
-        <h1 className="text-2xl font-black uppercase leading-tight tracking-tight md:text-4xl">{mainSlide.name}</h1>
-        <p className="mt-1 text-xs text-white/70 md:text-sm">{mainSlide.location}</p>
+        <h1 className="text-xl font-black uppercase leading-tight tracking-tight  Orbitfont">{mainSlide.name}</h1>
+        <p className="mt-1 text-xs text-white/70 md:text-sm">{mainSlide.description}</p>
         <div className="mt-4 flex items-center gap-2">
           <button
             type="button"
@@ -179,10 +180,10 @@ export default function Advanced3DSlider() {
               />
               <div className="absolute inset-0 bg-black/30" />
 
-              <div className="absolute bottom-0 left-0 p-3 text-xs">
+              {/* <div className="absolute bottom-0 left-0 p-3 text-xs">
                 <p className="font-bold">{slide.name}</p>
-                <p className="opacity-70">{slide.location}</p>
-              </div>
+                <p className="opacity-70">{slide.description || slide.location}</p>
+              </div> */}
 
               {i === 0 && (
                 <div className="absolute inset-0 ring-2 ring-white/70 rounded-xl" />

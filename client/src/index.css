@@ -1,9 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
   @apply bg-slate-950 text-slate-50 antialiased;
+}
+.Orbitfont {
+  font-family: 'Orbitron', sans-serif;
 }
 
 /* Global dark style for form fields across the app */
