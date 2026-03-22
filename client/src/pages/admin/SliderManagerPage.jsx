@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
-import api from '../../api/client';
-
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+import api, { API_BASE_URL } from '../../api/client';
 
 const resolveMediaUrl = (url) => {
   if (!url) return '';

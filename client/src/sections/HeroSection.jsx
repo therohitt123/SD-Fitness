@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import api from '../api/client';
+import api, { API_BASE_URL } from '../api/client';
 import { useNavigate } from 'react-router-dom';
 
 const transition = { duration: 1, ease: [0.22, 1, 0.36, 1] };
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
 
 const resolveMediaUrl = (url) => {
   if (!url) return '';
