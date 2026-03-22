@@ -33,9 +33,35 @@ const isDbConfigured = Boolean(ENV.MONGO_URI);
 app.use(
   helmet({
     crossOriginResourcePolicy: false,
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        connectSrc: ["'self'", 'https:', 'http://localhost:5000', 'http://localhost:5173'],
+        imgSrc: ["'self'", 'data:', 'blob:', 'https:'],
+        styleSrc: ["'self'", 'https:', "'unsafe-inline'"],
+        fontSrc: ["'self'", 'https:', 'data:'],
+        frameSrc: ["'self'", 'https://www.google.com', 'https://maps.google.com'],
+      },
+    },
   })
 );
-app.use(cors({ origin: ENV.CLIENT_ORIGIN, credentials: true }));
+const allowedOrigins = new Set([
+  ENV.CLIENT_ORIGIN,
+  'http://localhost:5173',
+  'http://localhost:5174',
+  'https://sd-fitness-aewo.onrender.com',
+]);
+
+app.use(
+  cors({
+    origin(origin, callback) {
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.has(origin)) return callback(null, true);
+      return callback(new Error('Not allowed by CORS'));
+    },
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 if (ENV.NODE_ENV !== 'production') {

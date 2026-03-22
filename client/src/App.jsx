@@ -32,6 +32,12 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   const location = useLocation();
 
+  const fullScreenLoader = (
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950">
+      <Loader />
+    </div>
+  );
+
   const hideFooter =
     location.pathname.startsWith('/admin') || location.pathname.startsWith('/trainers/');
 
@@ -41,11 +47,7 @@ export default function App() {
   }, []);
 
   if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-950">
-        <Loader />
-      </div>
-    );
+    return fullScreenLoader;
   }
 
   return (
@@ -54,11 +56,7 @@ export default function App() {
       <Navbar />
       <main className="">
         <Suspense
-          fallback={
-            <div className="flex min-h-[50vh] items-center justify-center">
-              <Loader />
-            </div>
-          }
+          fallback={fullScreenLoader}
         >
           <Routes>
             <Route path="/" element={<HomePage />} />

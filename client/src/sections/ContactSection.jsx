@@ -93,7 +93,9 @@ export default function ContactSection() {
             </div>
           </div>
 
-          <div className="grid gap-2 text-xs text-slate-300">
+        </div>
+        <div className=" rounded-2xl border border-slate-800 bg-slate-900/70 p-4 text-xs">
+          <div className="grid  text-sm text-slate-300">
             <p>
               <span className="text-slate-500">Phone:</span> {gymInfo?.phonePrimary || '+91-XXXXXXXXXX'}
             </p>
@@ -106,9 +108,7 @@ export default function ContactSection() {
               <span className="text-slate-500">Address:</span> {gymInfo?.address || 'Update from admin panel'}
             </p>
           </div>
-        </div>
-        <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-4 text-xs">
-          <p className="mb-3 text-[11px] font-semibold uppercase tracking-wide text-slate-400">
+          <p className="my-4 text-[11px] font-semibold uppercase tracking-wide text-slate-400">
             Contact Form
           </p>
           <form onSubmit={onSubmit} className="space-y-3">
