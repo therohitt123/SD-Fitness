@@ -21,7 +21,7 @@ export default function Loader() {
         <div className="box" />
         <div className="box" />
       </div>
-      <span className="text-xs tracking-[0.35em] uppercase text-slate-400">Fitness</span>
+      <span className="text-xs tracking-[0.35em] uppercase text-slate-400 Orbitfont">Fitness</span>
     </div>
   );
 }
